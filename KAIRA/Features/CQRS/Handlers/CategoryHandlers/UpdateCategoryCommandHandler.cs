@@ -20,8 +20,8 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
                 Name = categoryCommand.Name,
                 ImageUrl=categoryCommand.ImageUrl
             };
-            _manager.Category.Update(category);
-            await _manager.SaveChangesAsync();
+            await _manager.Category.UpdateAsync(category);
+        
         }
     }
 }

@@ -15,9 +15,9 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 
         public async Task<GetCategoryByIdQueryResult> Handle(GetCategoryByIdQuery query)
         {
-            var category =await  _mananger.Category
-                                           .FindByCondition(x => x.Id == query.Id, false)
-                                           .SingleOrDefaultAsync();
+            var category = await _mananger.Category
+                                           .GetByIdAsync(query.Id, false);
+                                          
           
                 return new GetCategoryByIdQueryResult() 
                 {

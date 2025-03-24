@@ -34,6 +34,7 @@ namespace KAIRA.Areas.Admin.Controllers
             var categories = await _getCategoryHandler.Handle();
             return View(categories);
         }
+        [HttpGet]
         public async Task<IActionResult> Update([FromRoute]int id)
         {
             var category = await _getCategoryByIdHandler.Handle(new GetCategoryByIdQuery(id));

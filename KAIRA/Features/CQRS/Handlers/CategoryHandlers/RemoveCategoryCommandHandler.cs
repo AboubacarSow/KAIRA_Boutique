@@ -13,12 +13,8 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
         }
         public async Task Handle(RemoveCategoryCommand removeCommand)
         {
-            var category = await _manager.Category.FindByCondition(c => c.Id == removeCommand.Id,true)
-                                .FirstOrDefaultAsync();
-            if (category is null)
-                throw new ArgumentNullException("Category may be null her");
-            _manager.Category.Delete(category);
-            await _manager.SaveChangesAsync();
+           await  _manager.Category.DeleteAsync(removeCommand.Id);
+            
         }
     }
 }

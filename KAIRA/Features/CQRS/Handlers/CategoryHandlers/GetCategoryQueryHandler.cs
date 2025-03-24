@@ -14,7 +14,7 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 
         public async Task<List<GetCategoryQueryResult>> Handle()
         {
-            var categories = await _mananger.Category.FindAll(false).ToListAsync();
+            var categories = await _mananger.Category.GetAllAsync(false);
 
             return categories.Select(category => new GetCategoryQueryResult()
             {

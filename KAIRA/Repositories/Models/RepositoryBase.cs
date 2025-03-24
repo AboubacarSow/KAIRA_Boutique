@@ -7,7 +7,7 @@ namespace KAIRA.Repositories.Models
 {
     public abstract class RepositoryBase<T>(RepositoryContext context) : IRepositoryBase<T> where T :class
     {
-        private readonly RepositoryContext _context = context;
+        protected readonly RepositoryContext _context = context;
         public void Create(T entity)
         {
             _context.Set<T>().Add(entity);
