@@ -3,7 +3,7 @@
     public interface IRepositoryService
     {
         ICategoryRepository Category { get; }
-        void SaveChanges();
+        Task SaveChangesAsync();
 
     }
 }

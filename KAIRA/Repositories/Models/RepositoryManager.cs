@@ -1,5 +1,6 @@
 ﻿using KAIRA.Data.Context;
 using KAIRA.Repositories.Contracts;
+using System.Threading.Tasks;
 
 namespace KAIRA.Repositories.Models
 {
@@ -16,9 +17,9 @@ namespace KAIRA.Repositories.Models
 
         public ICategoryRepository Category => _categoryService.Value;
 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

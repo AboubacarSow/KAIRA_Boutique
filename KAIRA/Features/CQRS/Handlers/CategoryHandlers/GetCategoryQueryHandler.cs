@@ -21,7 +21,7 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
                 Id= category.Id,
                 Name=category.Name,
                 ImageUrl=category.ImageUrl,
-                Products=category.Products
+          
 
             }).ToList();
         }

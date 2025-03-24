@@ -17,15 +17,14 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
         {
             var category =await  _mananger.Category
                                            .FindByCondition(x => x.Id == query.Id, false)
-                                           .FirstOrDefaultAsync();
-
-            return new GetCategoryByIdQueryResult() 
-            { 
-                Id=category.Id,
-                Name=category.Name,
-                ImageUrl=category.ImageUrl,
-                Products=category.Products
-            };
+                                           .SingleOrDefaultAsync();
+          
+                return new GetCategoryByIdQueryResult() 
+                {
+                    Id = category.Id,
+                    Name=category.Name,
+                    ImageUrl=category.ImageUrl,
+                };
         }
     }
 }

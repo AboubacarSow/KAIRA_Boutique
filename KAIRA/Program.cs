@@ -20,6 +20,9 @@ namespace KAIRA
             });
             builder.Services.AddScoped<GetCategoryQueryHandler>();
             builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
+            builder.Services.AddScoped<CreateCategoryCommandHandler>();
+            builder.Services.AddScoped<UpdateCategoryCommandHandler>();
+            builder.Services.AddScoped<RemoveCategoryCommandHandler>();
             builder.Services.AddScoped<IRepositoryService, RepositoryManager>();
                 
             var app = builder.Build();

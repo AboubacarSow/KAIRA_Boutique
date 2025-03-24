@@ -1,0 +1,14 @@
+﻿@model GetCategoryByIdQueryResult
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<form method="post" asp-action="Update" asp-controller="Category">
+    <label class="form-label">Kategori adi</label>
+    <input type="text" class="form-control"  asp-for="Name"/>
+    <label class="form-label">Kategori Resmi</label>
+    <input type="text" class="form-control" asp-for="ImageUrl" />
+    <button class="btn btn-outline-success" type="submit">Güncelle</button>
+</form>
