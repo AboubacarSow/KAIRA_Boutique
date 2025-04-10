@@ -1,4 +1,4 @@
-﻿using KAIRA.Features.CQRS.Results;
+﻿using KAIRA.Features.CQRS.Results.CategoryResults;
 using KAIRA.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,8 +6,8 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 {
     public class GetCategoryQueryHandler
     {
-        private readonly IRepositoryService _mananger;
-        public GetCategoryQueryHandler(IRepositoryService mananger)
+        private readonly IRepositoryManager _mananger;
+        public GetCategoryQueryHandler(IRepositoryManager mananger)
         {
             _mananger = mananger;
         }

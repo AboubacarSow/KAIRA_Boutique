@@ -2,6 +2,7 @@
 using KAIRA.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace KAIRA.Repositories.Models
 {
@@ -18,13 +19,7 @@ namespace KAIRA.Repositories.Models
             _context.Remove(entity);
         }
 
-        public IQueryable<T> FindAll(bool trackChanges)
-        {
-            return !trackChanges
-                    ? _context.Set<T>().AsNoTracking()
-                    : _context.Set<T>();
-                
-        }
+       
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> condition, bool trackChanges)
         {
             return !trackChanges
@@ -34,6 +29,14 @@ namespace KAIRA.Repositories.Models
         public void Update(T entity)
         {
             _context.Set<T>().Update(entity);
+        }
+
+       public  IQueryable<T> FindAll(Expression<Func<T, object>> include, bool trackChanges)
+        {
+            return !trackChanges
+                    ? (include is not null ? _context.Set<T>().AsNoTracking().Include(include) : _context.Set<T>().AsNoTracking())
+                    : _context.Set<T>();
+
         }
     }
 }

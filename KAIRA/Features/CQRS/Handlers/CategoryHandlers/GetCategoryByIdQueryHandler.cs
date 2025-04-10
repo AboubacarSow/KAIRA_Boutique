@@ -1,5 +1,5 @@
 ﻿using KAIRA.Features.CQRS.Queries.CategoryQueries;
-using KAIRA.Features.CQRS.Results;
+using KAIRA.Features.CQRS.Results.CategoryResults;
 using KAIRA.Repositories.Contracts;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,8 +7,8 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 {
     public class GetCategoryByIdQueryHandler
     {
-        private readonly IRepositoryService _mananger;
-        public GetCategoryByIdQueryHandler(IRepositoryService mananger)
+        private readonly IRepositoryManager _mananger;
+        public GetCategoryByIdQueryHandler(IRepositoryManager mananger)
         {
             _mananger = mananger;
         }

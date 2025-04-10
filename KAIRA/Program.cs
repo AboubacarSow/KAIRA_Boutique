@@ -3,6 +3,7 @@ using KAIRA.Features.CQRS.Handlers.CategoryHandlers;
 using KAIRA.Repositories.Contracts;
 using KAIRA.Repositories.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace KAIRA
 {
@@ -18,12 +19,17 @@ namespace KAIRA
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
+            builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            builder.Services.AddMediatR(configuration =>
+            {
+                configuration.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly());
+            });
             builder.Services.AddScoped<GetCategoryQueryHandler>();
             builder.Services.AddScoped<GetCategoryByIdQueryHandler>();
             builder.Services.AddScoped<CreateCategoryCommandHandler>();
             builder.Services.AddScoped<UpdateCategoryCommandHandler>();
             builder.Services.AddScoped<RemoveCategoryCommandHandler>();
-            builder.Services.AddScoped<IRepositoryService, RepositoryManager>();
+            builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
                 
             var app = builder.Build();
 

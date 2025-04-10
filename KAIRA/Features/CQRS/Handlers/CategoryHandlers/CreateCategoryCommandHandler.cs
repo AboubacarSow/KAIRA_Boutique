@@ -6,9 +6,9 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 {
     public class CreateCategoryCommandHandler
     {
-        private readonly IRepositoryService _manager;
+        private readonly IRepositoryManager _manager;
 
-        public CreateCategoryCommandHandler(IRepositoryService manager)
+        public CreateCategoryCommandHandler(IRepositoryManager manager)
         {
             _manager = manager;
         }

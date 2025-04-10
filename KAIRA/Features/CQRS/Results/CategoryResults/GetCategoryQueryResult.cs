@@ -1,12 +1,11 @@
 ﻿using KAIRA.Data.Entities;
 
-namespace KAIRA.Features.CQRS.Results
+namespace KAIRA.Features.CQRS.Results.CategoryResults
 {
-    public class GetCategoryByIdQueryResult
+    public class GetCategoryQueryResult
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string ImageUrl { get; set; }
-        
     }
 }

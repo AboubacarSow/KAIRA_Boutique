@@ -6,8 +6,8 @@ namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 {
     public class RemoveCategoryCommandHandler
     {
-        private readonly IRepositoryService _manager;
-        public RemoveCategoryCommandHandler(IRepositoryService manager)
+        private readonly IRepositoryManager _manager;
+        public RemoveCategoryCommandHandler(IRepositoryManager manager)
         {
             _manager = manager;
         }

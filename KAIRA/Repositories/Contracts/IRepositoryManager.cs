@@ -1,9 +1,9 @@
 ﻿namespace KAIRA.Repositories.Contracts
 {
-    public interface IRepositoryService
+    public interface IRepositoryManager
     {
         ICategoryRepository Category { get; }
-       
+       IProductRepository Product { get; }
 
     }
 }
