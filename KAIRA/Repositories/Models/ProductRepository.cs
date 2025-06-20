@@ -27,9 +27,9 @@ namespace KAIRA.Repositories.Models
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Product>> GetAllAsync(Expression<Func<Product, object>>include, bool trackCkanges)
+        public async Task<List<Product>> GetAllAsync(bool trackCkanges, Expression<Func<Product, object>>? include)
         {
-            return await FindAll(include, trackCkanges).ToListAsync();
+            return await FindAll(trackCkanges,include).ToListAsync();
         }
 
         public async Task<Product> GetByIdAsync(int id, bool trackChanges)

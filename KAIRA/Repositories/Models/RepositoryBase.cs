@@ -31,7 +31,7 @@ namespace KAIRA.Repositories.Models
             _context.Set<T>().Update(entity);
         }
 
-       public  IQueryable<T> FindAll(Expression<Func<T, object>> include, bool trackChanges)
+       public  IQueryable<T> FindAll(bool trackChanges,Expression<Func<T, object>>? include)
         {
             return !trackChanges
                     ? (include is not null ? _context.Set<T>().AsNoTracking().Include(include) : _context.Set<T>().AsNoTracking())

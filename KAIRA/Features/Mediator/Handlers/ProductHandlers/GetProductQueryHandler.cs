@@ -20,7 +20,7 @@ namespace KAIRA.Features.Mediator.Handlers.ProductHandlers
 
         public async Task<List<GetProductQueryResult>> Handle(GetProductsQuery request, CancellationToken cancellationToken)
         {
-            var products = await _manager.Product.GetAllAsync(include: p=>p.Category,false);
+            var products = await _manager.Product.GetAllAsync(false,include: p=>p.Category);
             return _mapper.Map<List<GetProductQueryResult>>(products);
         }
     }

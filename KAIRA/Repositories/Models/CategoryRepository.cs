@@ -28,7 +28,7 @@ namespace KAIRA.Repositories.Models
 
         public async Task<List<Category>> GetAllAsync(bool trackCkanges)
         {
-            return await FindAll(trackCkanges).ToListAsync();
+            return await FindAll(trackCkanges,null).ToListAsync();
         }
 
         public async Task<Category> GetByIdAsync(int id, bool trackChanges)

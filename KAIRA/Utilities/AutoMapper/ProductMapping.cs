@@ -9,7 +9,7 @@ namespace KAIRA.Utilities.AutoMapper
         public ProductMapping()
         {
             CreateMap<Product, GetProductQueryResult>();
-            CreateMap<Product, GetProductByIdQueryResult>();
+            CreateMap<Product, GetProductByIdQueryResult>(); 
         }
     }
 }
