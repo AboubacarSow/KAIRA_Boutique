@@ -2,14 +2,13 @@
 using KAIRA.Data.Entities;
 using KAIRA.Features.Mediator.Results.ProductResults;
 
-namespace KAIRA.Utilities.AutoMapper
+namespace KAIRA.Utilities.AutoMapper;
+
+public class ProductMapping: Profile
 {
-    public class ProductMapping: Profile
+    public ProductMapping()
     {
-        public ProductMapping()
-        {
-            CreateMap<Product, GetProductQueryResult>();
-            CreateMap<Product, GetProductByIdQueryResult>(); 
-        }
+        CreateMap<Product, GetProductQueryResult>();
+        CreateMap<Product, GetProductByIdQueryResult>(); 
     }
 }

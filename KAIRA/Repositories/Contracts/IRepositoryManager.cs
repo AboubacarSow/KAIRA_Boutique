@@ -10,6 +10,6 @@ public interface IRepositoryManager
     IServiceRepository Service { get; }
     IGalleryRepository Gallery { get; }
     ISocialMediaRepository SocialMedia { get; }
-    ITestimionilaRepository Testimionila { get; }   
+    ITestimionilaRepository Testimionial { get; }   
 
 }

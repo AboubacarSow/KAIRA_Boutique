@@ -1,7 +1,5 @@
-﻿namespace KAIRA.Features.CQRS.Commands.CategoryCommands
+﻿namespace KAIRA.Features.CQRS.Commands.CategoryCommands;
+public class RemoveCategoryCommand(int id)
 {
-    public class RemoveCategoryCommand(int id)
-    {
-        public int Id { get; set; } = id;
-    }
+    public int Id { get; set; } = id;
 }

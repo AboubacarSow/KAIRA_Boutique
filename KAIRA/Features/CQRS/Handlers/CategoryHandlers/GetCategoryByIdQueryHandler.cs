@@ -1,7 +1,6 @@
 ﻿using KAIRA.Features.CQRS.Queries.CategoryQueries;
 using KAIRA.Features.CQRS.Results.CategoryResults;
 using KAIRA.Repositories.Contracts;
-using Microsoft.EntityFrameworkCore;
 
 namespace KAIRA.Features.CQRS.Handlers.CategoryHandlers
 {

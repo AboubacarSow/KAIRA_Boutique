@@ -37,5 +37,5 @@ public class RepositoryManager : IRepositoryManager
     public IServiceRepository Service => _serviceRepos.Value;
     public IGalleryRepository Gallery => _galleryService.Value;
     public ISocialMediaRepository SocialMedia => _socialMediaService.Value;
-    public ITestimionilaRepository Testimionila => _testimonialService.Value;
+    public ITestimionilaRepository Testimionial => _testimonialService.Value;
 }
