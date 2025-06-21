@@ -3,9 +3,8 @@
 namespace KAIRA.Repositories.Contracts;
 public interface ISubscriberRepository
 {
-    Task<List<Category>> GetAllAsync(bool trackCkanges);
-    Task<Category> GetByIdAsync(int id, bool trackChanges);
-    Task UpdateAsync(Category entity);
-    Task CreateAsync(Category entity);
+    Task<List<Subscriber>> GetAllAsync(bool trackCkanges);
+    Task<Subscriber> GetByIdAsync(int id, bool trackChanges);
+    Task CreateAsync(Subscriber entity);
     Task DeleteAsync(int id);
 }
