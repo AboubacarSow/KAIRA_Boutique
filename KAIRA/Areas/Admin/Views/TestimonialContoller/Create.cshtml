@@ -1,0 +1,31 @@
+﻿@model CreateTestimonialCommand
+@{
+    ViewData["Title"] = "değerlendirme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container top-entete mb-2">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-plus me-2"></i>Değerlendirme Yapma İşlemi </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container formulaire mt-3">
+    <form method="post">
+        <label class="form-label mb-2"> Ad</label>
+        <input type="text" asp-for="@Model.Author" class="form-control mb-3" placeholder="Adınız Giriniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.Author"></span>  <br />
+        <label class="form-label mb-2">Açıklama</label>
+        <textarea class="form-control mb-3" asp-for="@Model.Comment" placeholder="Açıklama Giriniz " style="min-height:100px;"></textarea>
+        <span class="text-danger my-1" asp-validation-for="@Model.Comment"></span><br />
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa-solid fa-plus me-1"></i>
+                Kaydet
+            </button>
+        </div>
+    </form>
+</div>
+

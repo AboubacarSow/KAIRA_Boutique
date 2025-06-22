@@ -4,4 +4,5 @@ public class UpdateGalleryCommand :IRequest
 {
     public int Id { get; set; }
     public string ImageUrl { get; set; }
+    public IFormFile ImageFile { get; set; }
 }

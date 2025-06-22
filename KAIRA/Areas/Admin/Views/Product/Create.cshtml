@@ -1,0 +1,44 @@
+﻿
+@model CreateProductCommand
+@{
+    ViewData["Title"] = "Ürün Ekleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container top-entete">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-plus me-2"></i>Ders Ekleme İşlemi </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container formulaire mt-3">
+    <form method="post" enctype="multipart/form-data">
+        <label class="form-label">Ürün Görseli</label>
+        <input type="file" asp-for="@Model.ImageFile" class="form-control" placeholder="Resim seçiniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.ImageFile"></span>  <br />
+        <br />
+        <label class="form-label">Ürün Adı</label>
+        <input type="text" class="form-control" asp-for="@Model.Name" placeholder="Ders adını giriniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.Name"></span>  <br />
+        <br />
+        <label class="form-label">Fıyat</label>
+        <input type="text" class="form-control" asp-for="@Model.Price" placeholder="Dersin ücreti ne kadar?" />
+        <span class="text-danger my-1" asp-validation-for="@Model.Price"></span>  <br />
+        <br />
+        <label class="form-label">Kategori</label>
+        @Html.DropDownListFor(prop => prop.CategoryId, (List<SelectListItem>)ViewBag.Categories, new { @class = "form-control" })
+        <span class="text-danger my-1" asp-validation-for="@Model.CategoryId"></span>  <br />
+        <br />
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa-solid fa-plus me-1"></i>
+                Kaydet
+            </button>
+
+        </div>
+    </form>
+
+</div>

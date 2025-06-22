@@ -1,0 +1,54 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KAIRA - Admin @ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+          integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" type="image/png" href="~/admin/assets/images/logos/seodashlogo.png" />
+    <link rel="stylesheet" href="~/admin/assets/css/styles.min.css" />
+    <link href="~/css/admincontent.css" rel="stylesheet" asp-append-version="true" />
+</head>
+
+<body>
+    <!--  Body Wrapper -->
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+         data-sidebar-position="fixed" data-header-position="fixed">
+        <!-- Sidebar Start -->
+        <partial name="_NavMenu" />
+        <!--  Sidebar End -->
+        <!--  Main wrapper -->
+        <div class="body-wrapper">
+            <!-- <partial name="_HeaderComponent" /> Header Start -->
+            <!--  Header End -->
+
+
+            <div class="container-fluid" style="min-height:600px; padding-top:15px;">
+                @RenderBody()
+            </div>
+        </div>
+        <footer class="text-primary"> 2025 Copyright ABOUBACAR</footer>
+    </div>
+    <script src="~/admin/assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/admin/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/admin/assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="~/admin/assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="~/admin/assets/js/sidebarmenu.js"></script>
+    <script src="~/admin/assets/js/app.min.js"></script>
+    <script src="~/admin/assets/js/dashboard.js"></script>
+    <script src="~/admin/assets/js/videoModal.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

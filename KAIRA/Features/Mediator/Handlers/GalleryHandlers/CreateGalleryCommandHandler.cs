@@ -2,6 +2,7 @@
 using KAIRA.Data.Entities;
 using KAIRA.Features.Mediator.Commands.GalleryCommands;
 using KAIRA.Repositories.Contracts;
+using KAIRA.Utilities.Extensions;
 using MediatR;
 using NuGet.Protocol.Plugins;
 
@@ -20,6 +21,7 @@ public class CreateGalleryCommandHandler: IRequestHandler<CreateGalleryCommand>
     public async Task Handle(CreateGalleryCommand request, CancellationToken cancellationToken)
     {
         var gallery = mapper.Map<Gallery>(request);
+        gallery.ImageUrl=Media.UploadImage(request.ImageFile);
         await repositoryManager.Gallery.CreateAsync(gallery);
     }
 }

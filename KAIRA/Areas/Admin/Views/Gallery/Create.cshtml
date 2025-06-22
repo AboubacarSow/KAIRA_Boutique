@@ -1,0 +1,27 @@
+﻿@model CreateGalleryCommand
+@{
+    ViewData["Title"] = "fotoğraf ekleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container top-entete mb-2">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-plus me-2"></i>Galery Ekleme İşlemi </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container formulaire mt-3">
+    <form method="post" enctype="multipart/form-data">
+        <label class="form-label me-1 mt-3">Görsel</label>
+        <input type="file" asp-for="@Model.ImageFile" class="form-control" placeholder="Görsel Yükleyin">
+        <span asp-validation-for="@Model.ImageFile" class="text-danger my-1"></span><br />
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa-solid fa-plus me-2"></i>Kaydet
+            </button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,35 @@
+﻿@model GetContactInfoByIdQueryResult
+@{
+    ViewData["Title"] = "İletişim Güncelleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container top-entete mb-2">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-plus me-2"></i>İletişim Güncelleme İşlemi </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container formulaire mt-3">
+    <form method="post">
+        <input type="hidden" asp-for="@Model.Id" />
+        <label class="form-label me-1 mt-3">Mail</label>
+        <input type="text" asp-for="@Model.Email" class="form-control" placeholder="Marka Adı Giriniz">
+        <span asp-validation-for="@Model.Email" class="text-danger my-1"></span><br />
+
+        <label class="form-label me-1 mt-3">Telefon No</label>
+        <input type="text" asp-for="@Model.PhoneNumber" class="form-control" placeholder="Tel No giriniz" />
+        <span asp-validation-for="@Model.PhoneNumber" class="text-danger my-1"></span>
+
+        <label class="form-label me-1 mt-3">Adres</label>
+        <textarea class="form-control" asp-for="@Model.Address" placeholder="Adres Bilgileri giriniz" style="min-height:100px"></textarea>
+
+        <div class="d-flex justify-content-center mt-3">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa-solid fa-plus me-2"></i>Güncelle
+            </button>
+        </div>
+    </form>
+</div>

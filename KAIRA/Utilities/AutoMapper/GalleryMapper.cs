@@ -13,5 +13,6 @@ public class GalleryMapper: Profile
         CreateMap<Gallery, GetGalleryByIdQueryResult>();
         CreateMap<CreateGalleryCommand, Gallery>();
         CreateMap<UpdateGalleryCommand, Gallery>().ReverseMap();
+        CreateMap<GetGalleryByIdQueryResult, UpdateGalleryCommand>();
     }
 }

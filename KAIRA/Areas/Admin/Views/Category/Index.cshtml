@@ -1,32 +1,55 @@
-﻿@using KAIRA.Features.CQRS.Results.CategoryResults
-
-@model List<GetCategoryQueryResult>
+﻿@model List<GetCategoryQueryResult>
 @{
     ViewData["Title"] = "List of Category";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="container top-entete">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-list-ul me-4"></i>Kategori Bilgileri </h4>
+        </div>
+        <a href="/Admin/Category/Create" class="btn btn-outline-primary">
+            <i class="fa-solid fa-plus me-1"></i>Yeni Ekle
+        </a>
+
+    </div>
+</div>
 
 
-<table class="table table-hover table-bordered">
-    <thead>
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Move To trash</th>
-            <th>Update</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var category in Model)
-        {
+@if (Model.Count == 0)
+{
+    <div class="alert alert-info mt-3 text-center" role="alert">
+        <i class="fa-solid fa-circle-info me-3"></i>
+        <strong>Bilgilendirme!</strong> Henüz İletişim Bilgisi Yok.
+    </div>
+}
+else
+{
+<div class=" mb-3 table-responsive tableau mt-3">
+    <table class="table table-stripped table-hover table-sm">
+        <thead>
             <tr>
-                <td>@category.Id</td>
-                <td>@category.Name</td>
-                <td><img src="@category.ImageUrl" style="width:50px;height:50px;border-radius:50%"/></td>
-                <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Category" asp-route-id="@category.Id">Delete</a></td>
-                <td><a class="btn btn-success" asp-action="Update" asp-controller="Category" asp-route-id="@category.Id">Edit</a></td>
+                <th>No</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Move To trash</th>
+                <th>Update</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach(var category in Model)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td><img src="@category.ImageUrl" style="width:50px;height:50px;border-radius:50%"/></td>
+                    <td><a class="btn btn-danger" asp-action="Delete" asp-controller="Category" asp-route-id="@category.Id">Delete</a></td>
+                    <td><a class="btn btn-success" asp-action="Update" asp-controller="Category" asp-route-id="@category.Id">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+    
+}
 
