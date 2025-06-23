@@ -1,7 +1,8 @@
-﻿@model GetCategoryByIdQueryResult
+﻿@model UpdateCategoryCommand
 @{
     ViewData["Title"] = "Update";
-    ViewData["Title"] = "İletişim Güncelleme";
+    ViewData["Title"] = "Kategori Güncelleme";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 
 }
 <div class="container top-entete mb-2">
@@ -13,12 +14,19 @@
 </div>
 
 <div class="container formulaire mt-3">
-    <form method="post" asp-action="Update" asp-controller="Category">
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
         <label class="form-label">Kategori adi</label>
         <input type="text" class="form-control"  asp-for="Name"/>
+        <br />
         <label class="form-label">Kategori Resmi</label>
         <input type="text" class="form-control" asp-for="ImageUrl" />
-        <button class="btn btn-outline-success" type="submit">Güncelle</button>
+        <br />
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-outline-success" type="submit">
+                <i class="fa-solid fa-pen"></i>
+                Güncelle</button>
+        </div>
     </form>
 
 </div>

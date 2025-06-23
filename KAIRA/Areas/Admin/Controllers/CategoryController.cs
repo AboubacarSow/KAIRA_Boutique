@@ -2,6 +2,7 @@
 using KAIRA.Features.CQRS.Handlers.CategoryHandlers;
 using KAIRA.Features.CQRS.Queries.CategoryQueries;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Threading.Tasks;
 
 
@@ -38,10 +39,16 @@ public class CategoryController : Controller
     public async Task<IActionResult> Update([FromRoute]int id)
     {
         var category = await _getCategoryByIdHandler.Handle(new GetCategoryByIdQuery(id));
-        return View(category);
+        var updateCategory = new UpdateCategoryCommand
+        {
+            Id=category.Id,
+            Name=category.Name,
+            ImageUrl=category.ImageUrl,
+        };
+        return View(updateCategory);
     }
     [HttpPost]
-    public async Task<IActionResult> Update([FromForm]UpdateCategoryCommand command)
+    public async Task<IActionResult> Update(UpdateCategoryCommand command)
     {
         await _updateCategoryHandler.Handle(command);
         return RedirectToAction(nameof(Index));

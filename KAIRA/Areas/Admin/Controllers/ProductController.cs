@@ -1,4 +1,5 @@
-﻿using KAIRA.Features.CQRS.Handlers.CategoryHandlers;
+﻿using AutoMapper;
+using KAIRA.Features.CQRS.Handlers.CategoryHandlers;
 using KAIRA.Features.CQRS.Results.CategoryResults;
 using KAIRA.Features.Mediator.Commands.ProductCommands;
 using KAIRA.Features.Mediator.Queries.ProductQueries;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 namespace KAIRA.Areas.Admin.Controllers;
 
 [Area("Admin")]
-public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCategoryHandler) : Controller
+public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCategoryHandler,IMapper mapper) : Controller
 {
     
     public async Task<IActionResult> Index()
@@ -23,7 +24,8 @@ public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCa
     public async Task<IActionResult> Update(int id)
     {
         await GetCategories();
-        return View(await _mediator.Send(new GetProductByIdQuery(id)));
+        var product = await _mediator.Send(new GetProductByIdQuery(id));
+        return View(mapper.Map<UpdateProductCommand>(product));
     }
     private async Task GetCategories()
     {
@@ -47,7 +49,7 @@ public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCa
         return View(command);
     }
     [HttpGet]
-    public async Task<IActionResult> CreateAsync() { await GetCategories(); return View(); }
+    public async Task<IActionResult> Create() { await GetCategories(); return View(); }
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateProductCommand command)

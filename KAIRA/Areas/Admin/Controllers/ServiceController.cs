@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using KAIRA.Features.CQRS.Handlers.ServiceHandlers;
 using KAIRA.Features.CQRS.Queries.ServiceQueries;
 using KAIRA.Features.CQRS.Commands.ServiceCommands;
+using AutoMapper;
 
 namespace KAIRA.Areas.Admin.Controllers;
 
@@ -14,15 +15,17 @@ public class ServiceController : Controller
     private readonly CreateServiceCommandHandler _createServiceCommandHandler;
     private readonly UpdateServiceCommandHandler _updateServiceCommandHandler;
     private readonly RemoveServiceCommandHandler _removeServiceCommandHandler;
+    private readonly IMapper mapper;
     public ServiceController(GetServiceQueryHandler getServiceQueryHandler, GetServiceByIdQueryHandler getBrandByIdQueryHandler,
         CreateServiceCommandHandler createServiceCommandHandler, UpdateServiceCommandHandler updateServiceCommandHandler,
-        RemoveServiceCommandHandler removeServiceCommandHandler)
+        RemoveServiceCommandHandler removeServiceCommandHandler,IMapper mapper)
     {
         _getServiceQueryHandler = getServiceQueryHandler;
         _getServiceByIdQueryHandler = getBrandByIdQueryHandler;
         _createServiceCommandHandler = createServiceCommandHandler;
         _updateServiceCommandHandler = updateServiceCommandHandler;
         _removeServiceCommandHandler = removeServiceCommandHandler;
+        this.mapper = mapper;
     }
     public async Task<IActionResult> Index()
     {
@@ -48,8 +51,8 @@ public class ServiceController : Controller
     [HttpGet]
     public async Task<IActionResult> Update(int id)
     {
-        var brand = await _getServiceByIdQueryHandler.Handle(new GetServiceByIdQuery(id));
-        return View(brand);
+        var service = await _getServiceByIdQueryHandler.Handle(new GetServiceByIdQuery(id));
+        return View(mapper.Map<UpdateServiceCommand>(service));
     }
     [HttpPost]
     public async Task<IActionResult> Update(UpdateServiceCommand brandCommand)

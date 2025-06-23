@@ -13,5 +13,6 @@ public class SocialMediaMapper : Profile
         CreateMap<SocialMedia,GetSocialMediaByIdQueryResult>();
         CreateMap<CreateSocialMediaCommand, SocialMedia>();
         CreateMap<UpdateSocialMediaCommand, SocialMedia>().ReverseMap();
+        CreateMap<GetSocialMediaByIdQueryResult,UpdateSocialMediaCommand>().ReverseMap();
     }
 }

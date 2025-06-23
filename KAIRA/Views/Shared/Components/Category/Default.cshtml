@@ -1,0 +1,32 @@
+﻿
+@model List<GetCategoryQueryResult>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<section class="categories overflow-hidden">
+    <div class="container">
+        <div class="open-up" data-aos="zoom-out">
+            <div class="row">
+                @foreach(var cate in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="cat-item image-zoom-effect">
+                            <div class="image-holder">
+                                <a href="index.html">
+                                    <img src="@cate.ImageUrl" alt="categories" class="product-image img-fluid">
+                                </a>
+                            </div>
+                            <div class="category-content">
+                                <div class="product-button">
+                                    <a href="#" class="btn btn-common text-uppercase">@cate.Name</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

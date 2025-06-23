@@ -44,14 +44,18 @@ else
                     count++;
                     <tr>
                         <td>@count</td>
-                        <td><img src="@product.ImageUrl" class="img-thumbnail"/></td>
+                        <td><img src="@product.ImageUrl" class="img-thumbnail" style="width:65px;height:65px; border-radius:50% "/></td>
                         <td>@product.Name</td>
                         <td>@product.Price</td>
                         <td>@product.Category.Name</td>
                         <td>
                             <div class="btn-group">
-                                <a asp-action="Delete" asp-controller="Product" asp-route-id="@product.Id" asp-area="Admin" class="btn btn-danger"> Sil</a>
-                                <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" asp-area="Admin" class="btn btn-success"> Güncelle</a>
+                                <a asp-action="Delete" asp-controller="Product" asp-route-id="@product.Id" asp-area="Admin" class="btn btn-danger">
+                                    <i class="fa-solid fa-trash me-1"></i>Sil
+                                </a>
+                                <a asp-action="Update" asp-controller="Product" asp-route-id="@product.Id" asp-area="Admin" class="btn btn-success">
+                                    <i class="fa-solid fa-edit me-1"></i>Güncelle
+                                </a>
                             </div>
                         </td>
                     </tr>

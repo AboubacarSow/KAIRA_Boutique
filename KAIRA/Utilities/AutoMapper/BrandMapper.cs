@@ -13,5 +13,6 @@ public class BrandMapper : Profile
         CreateMap<Brand, GetBrandByIdQueryResult>();
         CreateMap<Brand, CreateBrandCommand>();
         CreateMap<Brand, UpdateBrandCommand>().ReverseMap();
+        CreateMap<GetBrandByIdQueryResult, UpdateBrandCommand>();
     }
 }

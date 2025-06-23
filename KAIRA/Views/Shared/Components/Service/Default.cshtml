@@ -1,0 +1,23 @@
+﻿@model List<GetServiceQueryResult>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<section class="service py-5">
+    <div class="container">
+        <div class="row">
+            @foreach(var service in Model)
+            {
+                <div class="col-md-3 text-center" data-aos="fade-in" data-aos-delay="0">
+                    <div class="py-5">
+                        <svg width="38" height="38" viewBox="0 0 24 24">
+                            <use xlink:href="#@service.Icon"></use>
+                        </svg>
+                        <h6 class="element-title text-capitalize my-3 text-nowrap">@service.Name</h6>
+                        <p class="text-center">@service.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

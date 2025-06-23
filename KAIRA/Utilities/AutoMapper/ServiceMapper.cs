@@ -13,5 +13,6 @@ public class ServiceMapper : Profile
         CreateMap<Service,GetServiceByIdQueryResult>();
         CreateMap<CreateServiceCommand, Service>();
         CreateMap<UpdateServiceCommand, Service>().ReverseMap();
+        CreateMap<GetServiceByIdQueryResult,UpdateServiceCommand>();
     }
 }

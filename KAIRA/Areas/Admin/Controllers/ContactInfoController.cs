@@ -2,6 +2,8 @@
 using KAIRA.Features.Mediator.Commands.ContactInfoCommands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Runtime.CompilerServices;
+using AutoMapper;
 
 namespace KAIRA.Areas.Admin.Controllers;
 
@@ -9,9 +11,11 @@ namespace KAIRA.Areas.Admin.Controllers;
 public class ContactInfoController :Controller
 {
     private readonly IMediator _mediator;
-    public ContactInfoController(IMediator mediator)
+    private readonly IMapper mapper;
+    public ContactInfoController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
+        this.mapper = mapper;
     }
 
     public async Task<IActionResult> Index()
@@ -36,7 +40,7 @@ public class ContactInfoController :Controller
     public async Task<IActionResult> Update(int id)
     {
         var contact= await _mediator.Send(new GetContactInfoByIdQuery(id));
-        return View(contact);
+        return View(mapper.Map<UpdateContactInfoCommand>(contact));
     }
 
     [HttpPost]
