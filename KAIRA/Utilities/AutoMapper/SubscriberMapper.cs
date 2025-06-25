@@ -10,6 +10,6 @@ public class SubscriberMapper : Profile
     public SubscriberMapper()
     {
         CreateMap<Subscriber, GetSubscriberQueryResult>();
-        CreateMap<Subscriber, CreateSubscriberCommand>();
+        CreateMap<Subscriber, CreateSubscriberCommand>().ReverseMap();
     }
 }

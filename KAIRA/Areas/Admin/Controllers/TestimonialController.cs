@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace KAIRA.Areas.Admin.Controllers;
 [Area("Admin")]
-public class TestimonialContoller: Controller
+public class TestimonialController: Controller
 {
     private readonly GetTestimonialQueryHandler _getTestimonialQueryHandler;
     private readonly CreateTestimonialCommandHandler _createTestimonialCommandHandler;
     private readonly RemoveTestimonialCommandHandler _removeTestimonialCommandHandler;
 
-    public TestimonialContoller(GetTestimonialQueryHandler getTestimonialQueryHandler, 
+    public TestimonialController(GetTestimonialQueryHandler getTestimonialQueryHandler, 
         CreateTestimonialCommandHandler createTestimonialCommandHandler,
         RemoveTestimonialCommandHandler removeTestimonialCommandHandler)
     {

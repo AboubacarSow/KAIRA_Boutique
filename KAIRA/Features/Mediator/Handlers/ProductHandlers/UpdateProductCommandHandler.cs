@@ -4,11 +4,10 @@ using KAIRA.Features.Mediator.Commands.ProductCommands;
 using KAIRA.Repositories.Contracts;
 using KAIRA.Utilities.Extensions;
 using MediatR;
-using NuGet.Protocol.Plugins;
 
 namespace KAIRA.Features.Mediator.Handlers.ProductHandlers;
 
-public class UpdateProductCommandHandler : IRequestHandler<CreateProductCommand>
+public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommand>
 {
     private readonly IRepositoryManager repositoryManager;
     private readonly IMapper mapper;
@@ -18,7 +17,7 @@ public class UpdateProductCommandHandler : IRequestHandler<CreateProductCommand>
         this.mapper = mapper;
     }
 
-    public async Task Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async Task Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
         var product=mapper.Map<Product>(request);
          if(request.ImageFile!=null) product.ImageUrl=Media.UploadImage(request.ImageFile);

@@ -18,15 +18,15 @@
 <div class="container formulaire mt-3">
     <form method="post">
         <label class="form-label me-1 mt-3">Sosyal Medya Adı</label>
-        <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Marka Adı Giriniz">
+        <input type="text" asp-for="@Model.Name" class="form-control" placeholder="Sosyal Medya Adı Giriniz">
         <span asp-validation-for="@Model.Name" class="text-danger my-1"></span><br />
 
         <label class="form-label me-1 mt-3">Link</label>
-        <input type="text" asp-for="@Model.Link" class="form-control" placeholder="Tel No giriniz" />
+        <input type="text" asp-for="@Model.Link" class="form-control" placeholder="Linki giriniz" />
         <span asp-validation-for="@Model.Link" class="text-danger my-1"></span>
 
          <label class="form-label me-1 mt-3">Ikon</label>
-        <input type="text" asp-for="@Model.Icon" class="form-control" placeholder="Tel No giriniz" />
+        <input type="text" asp-for="@Model.Icon" class="form-control" placeholder="İkonu giriniz" />
         <span asp-validation-for="@Model.Icon" class="text-danger my-1"></span>
       
         <div class="d-flex justify-content-center mt-3">

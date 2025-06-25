@@ -14,11 +14,21 @@ namespace KAIRA.Areas.Admin.Controllers;
 [Area("Admin")]
 public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCategoryHandler,IMapper mapper) : Controller
 {
+    private int pageSize { get; set; } = 5;
     
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int pageNumber)
     {
+
         var products = await _mediator.Send(new GetProductsQuery());
-        return View(products);
+        decimal count = products.Count;
+        if (pageNumber < 1) pageNumber = 1;
+        var pagedList = products.Skip(pageSize * (pageNumber - 1)).Take(pageSize);
+        var totalPage = (int)Math.Ceiling(count / pageSize);
+
+        ViewBag.TotalPages = totalPage;
+        ViewBag.CurrentPage = pageNumber;
+        var resultProducts = pagedList.OrderByDescending(p => p.Id).ToList();
+        return View(resultProducts);
     }
     [HttpGet]
     public async Task<IActionResult> Update(int id)
@@ -46,7 +56,7 @@ public class ProductController(IMediator _mediator,GetCategoryQueryHandler getCa
             return View(command);
         }
         await _mediator.Send(command);
-        return View(command);
+        return RedirectToAction(nameof(Index));
     }
     [HttpGet]
     public async Task<IActionResult> Create() { await GetCategories(); return View(); }

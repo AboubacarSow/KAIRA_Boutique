@@ -1,0 +1,21 @@
+﻿
+@model List<GetBrandQueryResult>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<section class="logo-bar py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="logo-content d-flex flex-wrap justify-content-between">
+                @foreach(var brand in Model)
+                {
+                    <img src="@brand.ImageUrl" alt="logo" class="logo-image img-fluid">
+                    
+                }
+                
+            </div>
+        </div>
+    </div>
+</section>

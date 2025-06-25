@@ -17,5 +17,6 @@ public static class Media
         using var stream = new FileStream(imagePath, FileMode.Create);
         file.CopyTo(stream);
         return String.Concat("/images/",imageName);
+
     }
 }

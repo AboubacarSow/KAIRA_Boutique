@@ -10,7 +10,7 @@
         <div class="d-flex align-items-center">
             <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-list-ul me-4"></i>Markalar </h4>
         </div>
-        <a href="/Admin/Brand/Create" class="btn btn-outline-primary">
+        <a asp-action="Create" asp-area="Admin" class="btn btn-outline-primary">
             <i class="fa-solid fa-plus me-1"></i>Yeni Ekle
         </a>
 
@@ -41,7 +41,7 @@ else
                     count++;
                     <tr>
                         <th>@count</th>
-                        <td>@brand.Name</td>
+                        <td><img src="@brand.ImageUrl" style="width:60px; height:60px; border-radius:50%" /> </td>
                         <td class="text-nowrap">
 
                             <a href="/Admin/Brand/Delete/@brand.Id" class="btn btn-danger">

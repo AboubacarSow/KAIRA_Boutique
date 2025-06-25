@@ -1,0 +1,30 @@
+﻿@model List<GetSocialMediaQueryResult>
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<div class="col-md-6 col-sm-6">
+    <div class="footer-menu footer-menu-001">
+        <div class="footer-intro mb-4">
+            <a href="index.html">
+                <img src="/kaira/images/main-logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="social-links">
+            <ul class="list-unstyled d-flex flex-wrap gap-3">
+                @foreach(var item in Model)
+                {
+                    <li>
+                        <a href="https://@item.Link" class="text-secondary">
+                           <i class="@item.Icon"> </i>
+                        </a>
+                    </li>  
+                }
+
+            </ul>
+              
+        </div>
+    </div>
+</div>

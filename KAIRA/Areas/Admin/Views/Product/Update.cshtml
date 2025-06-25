@@ -1,6 +1,44 @@
 ﻿@model UpdateProductCommand
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Ürün Güncelleme";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<div class="container top-entete">
+    <div class="d-flex justify-content-center">
+        <div class="d-flex align-items-center">
+            <h4 class="text-primary" style="line-height:15px"><i class="fa-solid fa-plus me-2"></i>Ürün Güncelleme İşlemi </h4>
+        </div>
+    </div>
+</div>
+
+<div class="container formulaire mt-3">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ImageUrl" />
+        <label class="form-label">Ürün Görseli</label>
+        <input type="file" asp-for="@Model.ImageFile" class="form-control" placeholder="Resim seçiniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.ImageFile"></span>  <br />
+        <br />
+        <label class="form-label">Ürün Adı</label>
+        <input type="text" class="form-control" asp-for="@Model.Name" placeholder="Ürün adını giriniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.Name"></span>  <br />
+        <br />
+        <label class="form-label">Fıyat</label>
+        <input type="text" class="form-control" asp-for="@Model.Price" placeholder="Ürün Fiyat giriniz" />
+        <span class="text-danger my-1" asp-validation-for="@Model.Price"></span>  <br />
+        <br />
+        <label class="form-label">Kategori</label>
+        <select asp-items="ViewBag.Categories" asp-for="@Model.CategoryId" class="form-control"></select>
+        <span class="text-danger my-1" asp-validation-for="@Model.CategoryId"></span>  <br />
+        <br />
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success" type="submit">
+                <i class="fa-solid fa-pen me-1"></i>
+                Güncelle
+            </button>
+
+        </div>
+    </form>
+
+</div>

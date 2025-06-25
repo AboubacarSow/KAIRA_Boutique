@@ -12,6 +12,6 @@ public class TestimonialMapper : Profile
     {
         CreateMap<Testimonial, GetTestimonialQueryResult>();
         CreateMap<Testimonial, GetTestimonialByIdQueryResult>();
-        CreateMap<Testimonial, CreateTestimonialCommand>();
+        CreateMap<Testimonial, CreateTestimonialCommand>().ReverseMap();
     }
 }

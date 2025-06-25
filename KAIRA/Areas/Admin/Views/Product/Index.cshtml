@@ -2,6 +2,8 @@
 @{
     ViewData["Title"] = "Ürünler";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    int totalPages = ViewBag.TotalPages;
     int count = 0;
 }
 
@@ -62,6 +64,26 @@ else
                 }
             </tbody>
         </table>
+        <nav>
+            <ul class="pagination pagination-lg">
+                @{
+
+                }
+                @for (int index = 1; index <= totalPages; index++)
+                {
+                    string activePage = string.Empty;
+                    if (index == ViewBag.CurrentPage)
+                    {
+                        activePage = "active";
+                    }
+
+                    <li class="page-item @activePage"><a class="page-link" asp-route-pageNumber="@index">@index</a></li>
+                    
+                }
+               
+               
+            </ul>
+        </nav>
     </div>
 
 }

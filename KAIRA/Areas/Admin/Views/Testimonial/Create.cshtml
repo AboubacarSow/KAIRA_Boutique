@@ -1,4 +1,5 @@
-﻿@model CreateTestimonialCommand
+﻿
+@model CreateTestimonialCommand
 @{
     ViewData["Title"] = "değerlendirme";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -16,7 +17,7 @@
     <form method="post">
         <label class="form-label mb-2"> Ad</label>
         <input type="text" asp-for="@Model.Author" class="form-control mb-3" placeholder="Adınız Giriniz" />
-        <span class="text-danger my-1" asp-validation-for="@Model.Author"></span>  <br />
+        <span class="text-danger my-1" asp-validation-for="@Model.Author"></span> <br />
         <label class="form-label mb-2">Açıklama</label>
         <textarea class="form-control mb-3" asp-for="@Model.Comment" placeholder="Açıklama Giriniz " style="min-height:100px;"></textarea>
         <span class="text-danger my-1" asp-validation-for="@Model.Comment"></span><br />

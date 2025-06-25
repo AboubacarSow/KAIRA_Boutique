@@ -1,0 +1,25 @@
+﻿
+@model List<GetGalleryQueryResult>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+<section class="instagram position-relative">
+
+    <div class="row g-0">
+
+        @foreach(var gallery in Model)
+        {
+            <div class="col-6 col-sm-4 col-md-2">
+                <div class="insta-item">
+              
+                   <img src="@gallery.ImageUrl" alt="gallery-@gallery.Id" class="insta-image img-fluid">
+               
+                </div>
+            </div>
+            
+        }
+        
+    </div>
+</section>
